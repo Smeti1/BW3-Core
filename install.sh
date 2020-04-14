@@ -17,7 +17,7 @@
 """
 Die Installation von BOSWatch3 wird mittels diesem bash-Skript weitestgehend automatisiert durchgeführt.
 Zunächst wird das aktuelle Installationsskript heruntergeladen:
-https://github.com/Smeti1/BW3-Core/blob/master/install.sh
+https://github.com/Smeti1/BW3-Core/raw/master/install.sh
 Im Anschluss wird das Skript mit dem Kommando
 sudo bash install.sh
 ausgeführt.
