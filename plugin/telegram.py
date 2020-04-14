@@ -34,7 +34,6 @@ class BoswatchPlugin(PluginBase):
         super().__init__(__name__, config)  # you can access the config class on 'self.config'
 
     def onLoad(self):
-	    def onLoad(self):
         """!Called by import of the plugin"""
         self.bot = telegram.Bot(token=self.config.get("botToken", default=""))
 
