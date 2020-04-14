@@ -23,15 +23,15 @@ inputSource:
   sdr:
     device: 0
     frequency: 85M
-    error: 0
-    squelch: 1
-    gain: 100
-    rtlPath: /usr/bin/rtl_fm
-    mmPath: /opt/multimon/multimon-ng
+    error: 7
+    squelch: 20
+    gain: 65
+    rtlPath: /usr/local/bin/rtl_fm
+    mmPath: /usr/local/bin/multimon-ng
 
 decoder:
-  fms: yes
+  fms: no
   zvei: yes
-  poc512: yes
-  poc1200: yes
-  poc2400: yes
+  poc512: no
+  poc1200: no
+  poc2400: no
