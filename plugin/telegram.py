@@ -34,28 +34,22 @@ class BoswatchPlugin(PluginBase):
         super().__init__(__name__, config)  # you can access the config class on 'self.config'
 
     def onLoad(self):
+	    def onLoad(self):
         """!Called by import of the plugin"""
         self.bot = telegram.Bot(token=self.config.get("botToken", default=""))
 
-    def pocsag(self, bwPacket):
-        """!Called on POCSAG alarm
+    def zvei(self, bwPacket):
+        """!Called on ZVEI alarm
 
         @param bwPacket: bwPacket instance"""
         msg = self.parseWildcards(self.config.get("message"))
-        if bwPacket.get("lat") is not None and bwPacket.get("lon") is not None:
-            logging.debug("Found coordinates in packet")
-            (lat, lon) = (bwPacket.get("lat"), bwPacket.get("lon"))
-
         for chatId in self.config.get("chatIds", default=[]):
+
             try:
                 # Send Message via Telegram
                 logging.info("Sending message to " + chatId)
                 self.bot.send_message(chat_id=chatId, text=msg)
 
-                # Send Location via Telegram if lat and lon are defined
-                if lat is not None and lon is not None:
-                    logging.info("Sending location to " + chatId)
-                    self.bot.sendLocation(chat_id=chatId, latitude=lat, longitude=lon)
             except Unauthorized:
                 logging.exception("Error while sending Telegram Message, please Check your api-key")
             except (TimedOut, NetworkError):
@@ -64,3 +58,4 @@ class BoswatchPlugin(PluginBase):
                 logging.exception("Error while sending Telegram Message")
             except Exception as e:
                 logging.exception("Unknown Error while sending Telegram Message: " + str(type(e).__name__) + ": " + str(e))
+
