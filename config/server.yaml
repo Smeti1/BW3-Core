@@ -112,8 +112,6 @@ router:
     res: telegram
     config:
       message: "{TIME};     {FREQ}\n{TONE}: {DESCR}"
-      botToken: "330541552:AAEjvoc2pGUB_QxjoxB6jhjPxtlW69OFMUo"
+      botToken: "TELEGRAMTOKEN"
       chatIds:
-# 10408231 Mi
-# GruppenChat ID (BOTChatIDAPIKey)=  -270892771
-        - "10408231"
+        - "CHATID"
