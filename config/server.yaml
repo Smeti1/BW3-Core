@@ -14,17 +14,40 @@ server:
 
 alarmRouter:
 - Router 1
-
 router:
 - name: Router 1
   route:
+# Filters
   - type: module
+    name: Filter FMS/ZVEI
     res: filter.modeFilter
-    name: Filter Fms/Zvei
     config:
       allowed:
         - fms
         - zvei
+
+# Descriptor
+  - type: module
+    name: Klartext
+    res: descriptor
+    config:
+      - scanField: zvei
+        descrField: description
+        wildcard: "{DESCR}"
+        descriptions:
+          - for: 21017
+            add: Test 21017
+          - for: 21232
+            add: Test 21232
+          - for: 21208
+            add: Test 21208
+ 
+# Telegram Plugin
   - type: plugin
-    name: test plugin
-    res: template_plugin
+    name: Telegram Plugin
+    res: telegram
+    config:
+      message: "{TIME};     {FREQ}\n{TONE}: {DESCR}"
+      botToken: "*hier-kommt-das-tocken-mit-passwort-rein*"
+      chatIds:
+        - "*CHATID*"
