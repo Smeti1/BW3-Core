@@ -31,23 +31,89 @@ router:
     name: Klartext
     res: descriptor
     config:
-      - scanField: zvei
+      - scanField: tone
         descrField: description
         wildcard: "{DESCR}"
         descriptions:
           - for: 21017
-            add: Test 21017
+            add: STA 21017
           - for: 21232
             add: Test 21232
           - for: 21208
             add: Test 21208
- 
+          - for: 21236
+            add: Test 21236
+          - for: 21212
+            add: Test 21212
+          - for: 21216
+            add: Test 21216
+          - for: 21231
+            add: Test 21231
+          - for: 21260
+            add: Test 21260
+          - for: 21281
+            add: Test 21281
+          - for: 21017
+            add: Test 21017
+          - for: 21220
+            add: Test 21220
+          - for: 21282
+            add: Test 21282
+          - for: 21203
+            add: Test 21203
+          - for: 21205
+            add: Test 21205
+          - for: 21191
+            add: Test 21191
+          - for: 21245
+            add: Test 21245
+          - for: 21222
+            add: Test 21222
+          - for: 21217
+            add: Test 21217
+       - for: 21210
+            add: Test 21210
+          - for: 21230
+            add: Test 21230
+          - for: 21947
+            add: Test 21947
+          - for: 21214
+            add: Test 21214
+          - for: 21206
+            add: Test 21206
+          - for: 21820
+            add: Test 21820
+          - for: 21216
+            add: Test 21216
+          - for: 21241
+            add: Test 21241
+          - for: 21837
+            add: Test 21837
+          - for: 21232
+            add: Test 21232
+          - for: 21241
+            add: Test 21241
+          - for: 21204
+            add: Test 21204
+          - for: 21203
+            add: Test 21203
+          - for: 21202
+            add: Test 21202
+          - for: 21201
+            add: Test 21201
+         - for: 21228
+            add: Test 21228
+          - for: Nix
+            add: so
+
 # Telegram Plugin
   - type: plugin
     name: Telegram Plugin
     res: telegram
     config:
       message: "{TIME};     {FREQ}\n{TONE}: {DESCR}"
-      botToken: "*hier-kommt-das-tocken-mit-passwort-rein*"
+      botToken: "330541552:AAEjvoc2pGUB_QxjoxB6jhjPxtlW69OFMUo"
       chatIds:
-        - "*CHATID*"
+# 10408231 Mi
+# GruppenChat ID (BOTChatIDAPIKey)=  -270892771
+        - "10408231"
