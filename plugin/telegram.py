@@ -8,10 +8,9 @@
 /_____/\____//____/ |__/|__/\__,_/\__/\___/_/ /_/   /____/
                 German BOS Information Script
                      by Bastian Schroll
-
 @file:        telegram.py
 @date:        20.02.2020
-@author:      Jan Speller
+@author:      Jan Speller, Smeti
 @description: Telegram Plugin
 """
 import logging
@@ -25,7 +24,6 @@ import telegram
 
 logging.debug("- %s loaded", __name__)
 
-
 class BoswatchPlugin(PluginBase):
     """!Description of the Plugin"""
 
@@ -37,10 +35,8 @@ class BoswatchPlugin(PluginBase):
         """!Called by import of the plugin"""
         self.bot = telegram.Bot(token=self.config.get("botToken", default=""))
 
-	
     def pocsag(self, bwPacket):
         """!Called on POCSAG alarm
-
         @param bwPacket: bwPacket instance"""
         msg = self.parseWildcards(self.config.get("message"))
         if bwPacket.get("lat") is not None and bwPacket.get("lon") is not None:
@@ -53,7 +49,7 @@ class BoswatchPlugin(PluginBase):
                 logging.info("Sending message to " + chatId)
                 self.bot.send_message(chat_id=chatId, text=msg)
 
-                # Send Location via Telegram if lat and lon are defined
+		# Send Location via Telegram if lat and lon are defined
                 if lat is not None and lon is not None:
                     logging.info("Sending location to " + chatId)
                     self.bot.sendLocation(chat_id=chatId, latitude=lat, longitude=lon)
@@ -64,21 +60,18 @@ class BoswatchPlugin(PluginBase):
             except (BadRequest, TelegramError):
                 logging.exception("Error while sending Telegram Message")
             except Exception as e:
-                logging.exception("Unknown Error while sending Telegram Message: " + str(type(e).__name__) + ": " + str(e))
-		
-	
+                logging.exception("Unknown Error while sending Telegram Message: " + str(type(e).__name__) + ": " + st$
+
+
     def zvei(self, bwPacket):
         """!Called on ZVEI alarm
-
         @param bwPacket: bwPacket instance"""
         msg = self.parseWildcards(self.config.get("message"))
         for chatId in self.config.get("chatIds", default=[]):
-
             try:
                 # Send Message via Telegram
                 logging.info("Sending message to " + chatId)
                 self.bot.send_message(chat_id=chatId, text=msg)
-
             except Unauthorized:
                 logging.exception("Error while sending Telegram Message, please Check your api-key")
             except (TimedOut, NetworkError):
@@ -86,5 +79,4 @@ class BoswatchPlugin(PluginBase):
             except (BadRequest, TelegramError):
                 logging.exception("Error while sending Telegram Message")
             except Exception as e:
-                logging.exception("Unknown Error while sending Telegram Message: " + str(type(e).__name__) + ": " + str(e))
-
+                logging.exception("Unknown Error while sending Telegram Message: " + str(type(e).__name__) + ": " + st$
